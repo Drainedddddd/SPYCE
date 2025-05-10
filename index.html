@@ -136,7 +136,8 @@
         #highlights, #referrals, #faq-section, #how-to-buy-section {
              background-color: #fff7fa;
         }
-        .hero + .section:not(#about) { /* If a section directly after hero isn't #about, it should get the alternate color */
+        /* This rule might be redundant if #about is always after a .hero, but kept for robustness */
+         .hero + .section:not(#about) { 
              background-color: #fff7fa;
         }
 
