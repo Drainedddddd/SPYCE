@@ -28,13 +28,13 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
-            animation: fadeInPage 0.7s ease-out forwards;
+            /* animation: fadeInPage 0.7s ease-out forwards; */ /* << RECENT CHANGE COMMENTED OUT */
         }
 
-        @keyframes fadeInPage {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* @keyframes fadeInPage {  */ /* << RECENT CHANGE COMMENTED OUT */
+        /*     from { opacity: 0; transform: translateY(-8px); } */
+        /*     to { opacity: 1; transform: translateY(0); } */
+        /* } */
 
         .container {
             max-width: 1100px;
@@ -95,7 +95,7 @@
 
         @keyframes pulseButton {
             0% {
-                box-shadow: 0 0 0 0 hsla(197, 40%, 70%, 0.6); /* primary color, slightly transparent for pulse */
+                box-shadow: 0 0 0 0 hsla(197, 40%, 70%, 0.6); 
             }
             70% {
                 box-shadow: 0 0 0 12px hsla(197, 40%, 70%, 0);
@@ -106,7 +106,7 @@
         }
 
         .cta-button {
-            background-color: var(--primary-color); /* Changed to primary for more pop */
+            background-color: var(--primary-color); 
             color: white;
             padding: 15px 35px;
             font-size: 1.2em;
@@ -118,25 +118,25 @@
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: inline-block;
-            animation: pulseButton 2.5s infinite cubic-bezier(0.66, 0, 0, 1); /* Added pulse animation */
+            animation: pulseButton 2.5s infinite cubic-bezier(0.66, 0, 0, 1); 
         }
 
         .cta-button:hover {
-            background-color: var(--button-hover-bg); /* Swapped hover to pink for variety */
+            background-color: var(--button-hover-bg); 
             transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 7px 22px hsla(350, 100%, 80%, 0.5); /* Pastel glow shadow */
-            animation-play-state: paused; /* Pause pulse on hover */
+            box-shadow: 0 7px 22px hsla(350, 100%, 80%, 0.5); 
+            animation-play-state: paused; 
         }
 
         .section {
             padding: 40px 20px;
             text-align: center;
         }
-        /* Apply alternating background. #about is intentionally kept transparent. */
+        
         #highlights, #referrals, #faq-section, #how-to-buy-section {
              background-color: #fff7fa;
         }
-        /* This rule might be redundant if #about is always after a .hero, but kept for robustness */
+        
          .hero + .section:not(#about) { 
              background-color: #fff7fa;
         }
@@ -174,7 +174,7 @@
             text-align: left;
         }
 
-        .feature-card, .referral-card { /* .referral-card also gets this styling */
+        .feature-card, .referral-card { 
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
@@ -294,7 +294,7 @@
                 Your Explainer Video Here
             </div>
 
-            <a href="javascript:void(0);" class="cta-button interact-button">Connect Wallet & Get SPYCE</a>
+            <a href="#connect-wallet" class="cta-button interact-button">Connect Wallet & Get SPYCE</a>
         </div>
     </section>
 
