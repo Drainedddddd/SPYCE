@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPYCE - Reward Your Fandom</title>
+    <script charset="UTF-8" type="text/javascript" src="./670ae96e-e193-4ae3-a041-4a84da05ba32.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-color: #fdf0f5;
+            --primary-color: #a7d8de;
+            --secondary-color: #ffc0cb;
+            --accent-color: #f8c8dc;
+            --text-color: #333;
+            --text-light: #555;
+            --card-bg: #ffffff;
+            --button-hover-bg: #92c1c8;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 700;
+        }
+        header h1 .spyce-s {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 720px;
+            height: 405px;
+            background-color: #e0e0e0;
+            margin: 30px auto;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #999;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .section:nth-child(even) {
+             background-color: #fff7fa;
+        }
+
+
+        .section h3 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .features-grid, .referral-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .feature-card, .referral-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover, .referral-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .feature-card h4, .referral-card h4 {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+         .feature-card .icon, .referral-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .section h3 {
+                font-size: 1.8em;
+            }
+            .feature-card h4, .referral-card h4 {
+                font-size: 1.3em;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+         @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .video-placeholder {
+                height: 250px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><span class="spyce-s">S</span>PYCE</h1>
+            <p style="color: var(--text-light); font-size: 1.1em;">The Future of Adult Creator Rewards</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Unlock Your Potential. Earn <span class="spyce-s">SPYCE</span>.</h2>
+            <p>Join the revolution in creator economy. SPYCE rewards you and your fans like never before. Watch our video to learn more!</p>
+            
+            <div class="video-placeholder">
+                Your Explainer Video Here
+            </div>
+
+            <a href="#connect-wallet" class="cta-button interact-button">Connect Wallet & Get SPYCE</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h3>What is <span class="spyce-s">SPYCE</span>?</h3>
+            <p style="max-width: 800px; margin: 0 auto 30px auto; color: var(--text-light); font-size: 1.1em;">
+                SPYCE is a groundbreaking web3 project designed for adult content creators. Our SPYCE token (coming soon!) empowers you by directly rewarding your engagement and reach. The more you have, the more you grow. Get ready to SPYCE up your creator journey!
+            </p>
+        </div>
+    </section>
+
+    <section id="highlights" class="section">
+        <div class="container">
+            <h3>Project Highlights</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">💰</div>
+                    <h4>Generous Token Airdrop</h4>
+                    <p>Receive a 1:1 SPYCE token airdrop based on your connected wallet's balance. More in your wallet means more SPYCE to start!</p>
+                </div>
+                <div class="feature-card">
+                     <div class="icon">📈</div>
+                    <h4>Boost Your Subscribers</h4>
+                    <p>Every 10 SPYCE tokens you hold can be equivalent to 1 new paid subscriber on your fan pages (Fansly, OnlyFans, etc.).</p>
+                </div>
+                <div class="feature-card">
+                     <div class="icon">🚀</div>
+                    <h4>Free Marketing Access</h4>
+                    <p>Early participants get exclusive access to free marketing resources and promotion, typically costing thousands a month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="referrals" class="section">
+        <div class="container">
+            <h3>Earn More with Referrals!</h3>
+            <div class="referral-grid">
+                <div class="referral-card">
+                    <div class="icon">🤝</div>
+                    <h4>Refer Creators</h4>
+                    <p>Refer a fellow creator to the SPYCE platform and earn <strong>100 SPYCE tokens</strong> (that's like 10 paid subs!).</p>
+                </div>
+                <div class="referral-card">
+                    <div class="icon">🐦</div>
+                    <h4>Share on X (Twitter)</h4>
+                    <p>Share our official Twitter page (@SPYCEonX) and earn <strong>10 SPYCE tokens</strong> (1 paid sub!).</p>
+                </div>
+                <div class="referral-card">
+                    <div class="icon">✍️</div>
+                    <h4>Post & Tag Us</h4>
+                    <p>Create a post about SPYCE and tag us @SPYCEonX to earn <strong>20 SPYCE tokens</strong> (2 paid subs!).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hero" style="padding-top: 30px;" id="connect-wallet">
+         <div class="container">
+            <h3>Ready to Get Started?</h3>
+            <p>Connect your wallet to check your eligibility for the SPYCE airdrop and join the waitlist for our platform launch!</p>
+            <a href="#connect-wallet" class="cta-button interact-button">Connect Wallet & Join Now</a>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SPYCE. All Rights Reserved.</p>
+            <p>Follow us on X (Twitter): <a href="https://twitter.com/SPYCEonX" target="_blank" rel="noopener noreferrer">@SPYCEonX</a></p>
+            <p><small>SPYCE token is coming soon. Wallet connection for airdrop eligibility will be enabled with platform launch.</small></p>
+        </div>
+    </footer>
+
+</body>
+</html>
