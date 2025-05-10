@@ -27,14 +27,17 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            /* overflow-x: hidden; */ /* << STEP 2: RECENT CHANGE COMMENTED OUT */
-            /* animation: fadeInPage 0.7s ease-out forwards; */ /* << STEP 1: Kept commented out */
         }
 
-        /* @keyframes fadeInPage { */ /* STEP 1: Kept commented out */
-        /*     from { opacity: 0; transform: translateY(-8px); } */
-        /*     to { opacity: 1; transform: translateY(0); } */
-        /* } */
+        .page-wrapper { 
+            overflow-x: hidden; 
+            animation: fadeInPage 0.7s ease-out forwards; 
+        }
+
+        @keyframes fadeInPage { 
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .container {
             max-width: 1100px;
@@ -278,13 +281,14 @@
     </style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <h1><span class="spyce-s">S</span>PYCE</h1>
-        <p style="color: var(--primary-color); font-size: 0.9em; margin-top: -8px; margin-bottom: 12px; font-style: italic; font-weight: bold;">Pronounced: Spicy</p>
-        <p style="color: var(--text-light); font-size: 1.1em;">The Future of Adult Creator Rewards</p>
-    </div>
-</header>
+<div class="page-wrapper"> 
+    <header>
+        <div class="container">
+            <h1><span class="spyce-s">S</span>PYCE</h1>
+            <p style="color: var(--primary-color); font-size: 0.9em; margin-top: -8px; margin-bottom: 12px; font-style: italic; font-weight: bold;">Pronounced: Spicy</p>
+            <p style="color: var(--text-light); font-size: 1.1em;">The Future of Adult Creator Rewards</p>
+        </div>
+    </header>
     <section class="hero">
         <div class="container">
             <h2>Unlock Your Potential. Earn <span class="spyce-s">SPYCE</span>.</h2>
@@ -294,7 +298,7 @@
                 Your Explainer Video Here
             </div>
 
-            <a href="#connect-wallet" class="cta-button interact-button">Connect Wallet & Get SPYCE</a>
+            <a href="javascript:void(0);" class="cta-button interact-button">Connect Wallet & Get SPYCE</a> <!-- << MODIFIED HREF HERE -->
         </div>
     </section>
 
@@ -423,6 +427,6 @@
             <p><small>SPYCE token is coming soon. Wallet connection for airdrop eligibility will be enabled with platform launch.</small></p>
         </div>
     </footer>
-
+</div> 
 </body>
 </html>
