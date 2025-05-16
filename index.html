@@ -10,14 +10,16 @@
 
         :root {
             --bg-color: #fdf0f5;
-            --primary-color: #a7d8de; /* Pastel Blue/Teal */
+            --primary-color: #77CBDA; /* User's Confirmed Teal */
             --secondary-color: #ffc0cb; /* Pastel Pink */
             --accent-color: #f8c8dc; /* Lighter Pastel Pink */
             --text-color: #333;
             --text-light: #555;
             --card-bg: #ffffff;
-            --button-hover-bg: #ffc0cb; /* Pastel Pink for hover */
+            --button-hover-bg: #5daab8; /* Darker version of User's Teal for hover */
             --font-family: 'Poppins', sans-serif;
+            --vibrant-pink-start: #ff85a1; 
+            --vibrant-pink-end: #ff5c8a;   
         }
 
         body {
@@ -55,24 +57,30 @@
             font-size: 3em;
             color: var(--primary-color);
             margin: 0;
-            font-weight: 700;
+            font-weight: 700; /* Explicitly bold */
         }
         header h1 .spyce-s {
             color: var(--secondary-color);
         }
-
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
+        /* Style for "Pronounced: Spicy" to ensure it uses primary color and is bold */
+        header p[style*="font-style: italic"] {
+            color: var(--primary-color) !important; /* Ensure primary color is used */
+            font-weight: bold !important; /* Ensure bold */
         }
 
-        .hero h2 {
+
+        .hero { 
+            text-align: center;
+            padding: 40px 20px; 
+        }
+
+        .hero h2 { 
             font-size: 2.5em;
             margin-bottom: 20px;
             font-weight: 600;
         }
-
-        .hero p {
+        
+        .hero p:not(.user-prompt-style) { 
             font-size: 1.2em;
             color: var(--text-light);
             margin-bottom: 30px;
@@ -80,36 +88,154 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .user-prompt-style { 
+             margin-bottom:15px; font-size:1.1em; color:var(--text-light); text-align: center;
+        }
 
-        .video-placeholder {
-            width: 100%;
-            max-width: 720px;
-            height: 405px;
-            background-color: #e0e0e0;
-            margin: 30px auto;
+        .survey-box {
+            background-color: var(--card-bg);
+            padding: 30px 40px;
             border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            margin: 30px auto;
+            max-width: 720px;
+            text-align: center;
+        }
+        .survey-box h3 {
+            font-size: 1.6em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 600; /* Ensure survey title is semibold */
+        }
+        .survey-buttons button { 
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0 10px;
+            min-width: 100px;
+        }
+        .survey-buttons button:hover { 
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .survey-buttons button.no-btn { 
+            background-color: var(--secondary-color);
+        }
+         .survey-buttons button.no-btn:hover { 
+            background-color: var(--primary-color);
+        }
+
+        .paybis-instructions {
+            background-color: #fff7fa; 
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            margin: 30px auto; 
+            max-width: 720px;
+            text-align: left;
+            border: 1px solid var(--accent-color);
+        }
+         .paybis-instructions .cta-button-container { 
+            margin-top: 20px; 
+        }
+        .paybis-instructions h4 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600; /* Ensure Paybis title is semibold */
+        }
+        .paybis-instructions p:not(.user-prompt-style) {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .paybis-instructions ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .paybis-instructions li {
+            margin-bottom: 10px;
+        }
+        .paybis-btn { 
+            display: inline-block;
+            background-color: #007bff; 
+            color: white !important; 
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+            text-align: center;
+            margin-top: 15px; 
+        }
+        .paybis-btn:hover {
+            background-color: #0056b3; 
+            transform: translateY(-2px);
+            text-decoration: none; 
+        }
+        .paybis-instructions .text-center {
+            text-align: center;
+        }
+        .paybis-instructions .important-note { 
+            font-weight: 600; /* Already semibold */
+            color: var(--primary-color);
+        }
+
+        .consent-checkbox-container {
+            margin-top: 25px; 
+            margin-bottom: 15px; 
+            padding: 15px; 
+            background-color: rgba(0,0,0,0.03); 
+            border: 1px solid var(--accent-color); 
+            border-radius: 8px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            color: #999;
-            border: 2px dashed var(--primary-color);
+            align-items: flex-start; 
+        }
+        .consent-checkbox-container input[type="checkbox"] {
+            margin-right: 12px; 
+            margin-top: 5px; 
+            width: 18px; 
+            height: 18px; 
+            flex-shrink: 0; 
+        }
+        .consent-checkbox-container label {
+            font-size: 0.95em;
+            color: var(--text-light);
+            cursor: pointer;
+            line-height: 1.5;
         }
 
-        @keyframes pulseButton {
-            0% {
-                box-shadow: 0 0 0 0 hsla(197, 40%, 70%, 0.6); 
-            }
-            70% {
-                box-shadow: 0 0 0 12px hsla(197, 40%, 70%, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 hsla(197, 40%, 70%, 0);
-            }
+        .cta-button-container { 
+            text-align: center; 
+        }
+        .yes-flow-cta-container {
+            margin-top: 30px; 
+            text-align: center;
+        }
+        .connect-wallet-bottom-section-container { 
+             margin-top: 30px;
+             text-align: center;
+             padding: 40px 20px; 
+        }
+        .connect-wallet-bottom-section-container h3 { 
+            font-size: 2.2em;
+            margin-bottom: 20px; 
+            color: var(--primary-color);
+            font-weight: 600; /* Already semibold */
         }
 
-        .cta-button {
-            background-color: var(--primary-color); 
+        .cta-button { 
             color: white;
             padding: 15px 35px;
             font-size: 1.2em;
@@ -118,38 +244,63 @@
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, background-image 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: inline-block;
-            animation: pulseButton 2.5s infinite cubic-bezier(0.66, 0, 0, 1); 
+        }
+        .cta-button.vibrant { 
+            background-image: linear-gradient(to right, var(--vibrant-pink-start), var(--vibrant-pink-end));
+            box-shadow: 0 5px 20px hsla(330, 100%, 65%, 0.4);
+        }
+        .cta-button.vibrant:hover {
+            background-image: linear-gradient(to right, var(--vibrant-pink-end), var(--vibrant-pink-start));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px hsla(330, 100%, 65%, 0.6);
+        }
+        .cta-button.non-vibrant { 
+            background-color: var(--secondary-color); 
+        }
+        .cta-button.non-vibrant:hover { 
+            background-color: #f7a7b6; 
+            transform: translateY(-4px) scale(1.03); 
+            box-shadow: 0 7px 22px hsla(350, 100%, 80%, 0.4); 
         }
 
-        .cta-button:hover {
-            background-color: var(--button-hover-bg); 
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 7px 22px hsla(350, 100%, 80%, 0.5); 
-            animation-play-state: paused; 
+        .disabled-link {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none; 
+            background-image: none !important; 
+            background-color: #ccc !important; 
+            color: #666 !important;
+            box-shadow: none !important; 
+        }
+        .disabled-link:hover { 
+            background-color: #ccc !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .hidden {
+            display: none !important;
         }
 
         .section {
-            padding: 40px 20px;
+            padding: 40px 20px; 
             text-align: center;
         }
-        
-        #highlights, #referrals, #faq-section, #how-to-buy-section {
+        .page-wrapper > .section:nth-child(odd):not(.hero):not(.connect-wallet-bottom-section-container) {
              background-color: #fff7fa;
         }
-        
-         .hero + .section:not(#about) { 
-             background-color: #fff7fa;
+         .page-wrapper > .section:nth-child(even):not(.hero):not(.connect-wallet-bottom-section-container) {
+            background-color: var(--bg-color); 
         }
 
-
-        .section h3 {
+        .section h3 { 
             font-size: 2.2em;
-            margin-bottom: 35px;
+            margin-bottom: 35px; 
             color: var(--primary-color);
-            font-weight: 600;
+            font-weight: 600; /* Already semibold */
             position: relative;
             display: inline-block;
             padding-bottom: 8px;
@@ -163,21 +314,18 @@
             width: 0;
             height: 3px;
             background-color: var(--secondary-color);
-            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
         }
         .section h3:hover::after {
-             width: 75%;
+             width: 75%; 
         }
-
-
         .features-grid, .referral-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 25px; 
             text-align: left;
         }
-
-        .feature-card, .referral-card { 
+        .feature-card, .referral-card {
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
@@ -185,10 +333,9 @@
             transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .feature-card:hover, .referral-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 12px 28px hsla(187, 58%, 70%, 0.35);
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 12px 28px hsla(195, 50%, 70%, 0.35); 
         }
-
         .feature-card h4, .referral-card h4 {
             font-size: 1.5em;
             color: var(--secondary-color);
@@ -198,86 +345,54 @@
          .feature-card .icon, .referral-card .icon {
             font-size: 2.5em;
             margin-bottom: 15px;
-            color: var(--primary-color);
+            color: var(--primary-color); 
             transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .feature-card:hover .icon, .referral-card:hover .icon {
-            transform: scale(1.2) rotate(-7deg);
+            transform: scale(1.2) rotate(-7deg); 
         }
-
-        .faq-item {
-            background-color: var(--card-bg);
-            padding: 20px 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .faq-item h4 {
-            color: var(--secondary-color);
-            font-size: 1.3em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .faq-item p {
-            color: var(--text-light);
-            font-size: 1em;
-            margin-bottom: 0;
-        }
-
-        .onramp-link {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .onramp-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-
+        
         footer {
             text-align: center;
             padding: 30px 20px;
             background-color: var(--accent-color);
             color: var(--text-light);
-            margin-top: 30px;
+            margin-top: 30px; 
         }
-        footer p {
-            margin: 5px 0;
-        }
+        footer p { margin: 5px 0; }
         footer a {
-            color: var(--primary-color);
+            color: var(--primary-color); 
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 600; /* Already semibold */
             transition: color 0.3s ease;
         }
         footer a:hover {
             text-decoration: none;
-            color: var(--secondary-color);
+            color: var(--secondary-color); 
         }
 
         @media (max-width: 768px) {
             header h1 { font-size: 2.5em; }
-            .hero h2 { font-size: 2em; }
-            .hero p { font-size: 1em; }
-            .section h3 { font-size: 1.8em; }
-            .feature-card h4, .referral-card h4, .faq-item h4 { font-size: 1.2em; }
+            .hero h2 { font-size: 2em; } .hero p:not(.user-prompt-style) { font-size: 1em; }
+            .section h3, .connect-wallet-bottom-section-container h3 { font-size: 1.8em; }
+            .feature-card h4, .referral-card h4 { font-size: 1.3em; }
             .cta-button { padding: 12px 25px; font-size: 1em; }
+            .survey-box h3 { font-size: 1.4em; }
+            .survey-buttons button { padding: 10px 20px; font-size: 0.9em;}
+            .paybis-instructions h4 {font-size: 1.3em;}
+            .consent-checkbox-container label {font-size: 0.9em;}
         }
          @media (max-width: 480px) {
             header h1 { font-size: 2em; }
-            .video-placeholder { height: 250px; }
-            .hero, .section { padding: 30px 15px; }
-            .section h3 { margin-bottom: 25px; }
+            .hero, .section, .connect-wallet-bottom-section-container { padding: 30px 15px; }
+            .section h3, .connect-wallet-bottom-section-container h3 { margin-bottom: 25px; }
+            .survey-box {padding: 20px;}
+            .survey-box h3 { font-size: 1.2em; margin-bottom: 20px;}
+            .survey-buttons button { margin: 5px; display: block; width: calc(100% - 10px);}
+            .paybis-instructions {padding: 20px;}
+            .consent-checkbox-container { flex-direction: column; align-items: center;}
+            .consent-checkbox-container input[type="checkbox"] { margin-bottom: 8px; }
         }
-
     </style>
 </head>
 <body>
@@ -289,16 +404,57 @@
             <p style="color: var(--text-light); font-size: 1.1em;">The Future of Adult Creator Rewards</p>
         </div>
     </header>
-    <section class="hero">
+    <section class="hero"> <!-- Top Hero Section -->
         <div class="container">
             <h2>Unlock Your Potential. Earn <span class="spyce-s">SPYCE</span>.</h2>
-            <p>Join the revolution in creator economy. SPYCE rewards you and your fans like never before. Watch our video to learn more!</p>
+            <p>Join the revolution in creator economy. SPYCE rewards you and your fans like never before.</p>
             
-            <div class="video-placeholder">
-                
+            <div id="surveyBox" class="survey-box">
+                <h3>Do You Currently Hold Any Crypto?</h3>
+                <div class="survey-buttons">
+                    <button id="surveyYesBtn">Yes</button>
+                    <button id="surveyNoBtn" class="no-btn">No</button>
+                </div>
             </div>
 
-            <a href="javascript:void(0);" class="cta-button interact-button">Connect Wallet & Get SPYCE</a>
+            <div id="paybisInstructions" class="paybis-instructions hidden">
+                <h4>New to Crypto? Here's How to Get Started!</h4>
+                <p>To get SPYCE tokens and participate, you'll first need some cryptocurrency like Ethereum (ETH). <strong style="color: var(--primary-color); font-weight: bold; font-style: normal;">The amount of crypto you hold in your connected wallet – whether it's existing funds or newly purchased ETH – will determine your 1:1 SPYCE token allocation. You are not sending or trading this crypto with us; it simply reflects your balance for the airdrop.</strong> We recommend Ethereum (ETH) as it's widely used and compatible with many Web3 wallets.</p>
+                <p><strong>Important Steps to Purchase and Prepare:</strong></p>
+                <ol>
+                    <li>Click the "Buy Ethereum (ETH) on Paybis" button below (it will become active once you confirm your understanding).</li>
+                    <li>When you arrive on Paybis, ensure you select or confirm <span class="important-note">Ethereum (ETH)</span> as the cryptocurrency you wish to purchase.</li>
+                    <li>Complete your purchase on Paybis.</li>
+                    <li>Ensure your newly purchased ETH is in a Web3 wallet you control (like MetaMask, Trust Wallet, or Phantom).</li>
+                    <li>Return to this page.</li>
+                    <li>The "Connect Wallet" button will appear below. Confirm you've completed the purchase using the checkbox that will appear below it.</li>
+                    <li>The "Connect Wallet" button will then become active. Click it to proceed!</li>
+                </ol>
+                <p>If you need help setting up a wallet, search for beginner guides like "MetaMask setup" or similar for your chosen wallet type.</p>
+
+                <div class="consent-checkbox-container"> 
+                    <input type="checkbox" id="ethConsentCheckbox" name="ethConsent">
+                    <label for="ethConsentCheckbox">I understand that SPYCE operates on the Ethereum network, and I need to purchase Ethereum (ETH) to participate. I have read the steps above.</label>
+                </div>
+                <div class="text-center">
+                    <a href="https://buy.paybis.com/click?pid=40703&offer_id=1" target="_blank" rel="noopener noreferrer" class="paybis-btn" id="paybisAffiliateBtn">Buy Ethereum (ETH) on Paybis</a>
+                </div>
+
+                <div id="ctaButtonContainer" class="cta-button-container">  
+                    <p id="userPrompt" class="user-prompt-style"></p>
+                    <a href="javascript:void(0);" class="cta-button interact-button" id="mainConnectWalletBtn">Connect Wallet & Get SPYCE</a>
+                </div>
+
+                <div id="purchasedEthConfirmContainer" class="consent-checkbox-container" style="margin-top: 25px;"> 
+                    <input type="checkbox" id="purchasedEthCheckbox" name="purchasedEth">
+                    <label for="purchasedEthCheckbox">I've purchased Ethereum (ETH) and it's now in my Web3 wallet, ready to connect.</label>
+                </div>
+            </div>
+            
+            <div id="yesFlowCtaContainer" class="yes-flow-cta-container hidden">
+                <p id="yesFlowUserPrompt" class="user-prompt-style"></p>
+                <a href="javascript:void(0);" class="cta-button interact-button" id="yesFlowMainConnectWalletBtn">Connect Wallet & Get SPYCE</a>
+            </div>
         </div>
     </section>
 
@@ -306,7 +462,7 @@
         <div class="container">
             <h3>What is <span class="spyce-s">SPYCE</span>?</h3>
             <p style="max-width: 800px; margin: 0 auto 30px auto; color: var(--text-light); font-size: 1.1em;">
-                SPYCE is a groundbreaking web3 project designed for adult content creators. Our SPYCE token empowers you to explore crypto safely & securely. The more you swap cash for crypto, the more you earn! Get ready to SPYCE up your creator journey!
+                SPYCE is a groundbreaking web3 project designed for adult content creators. Our SPYCE token (coming soon!) empowers you by directly rewarding you for holding crypto. The more you have, the more you earn! Get ready to SPYCE up your creator journey!
             </p>
         </div>
     </section>
@@ -356,69 +512,14 @@
             </div>
         </div>
     </section>
-
-    <section id="faq-section" class="section">
-        <div class="container">
-            <h3>Frequently Asked Questions (FAQ)</h3>
-            <div class="faq-item">
-                <h4>How does the 1:1 SPYCE token airdrop work?</h4>
-                <p>It's simple! The number of SPYCE tokens you receive in the airdrop will directly match the value of eligible crypto assets held in your connected wallet at the time of our snapshot. For instance, if your connected wallet holds $10,000 worth of a supported cryptocurrency (like ETH, BTC, or stablecoins) during the airdrop, you'll receive 10,000 SPYCE tokens! The more value you hold, the more SPYCE you get.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Which cryptocurrencies are eligible for the airdrop valuation?</h4>
-                <p>We aim to support a range of popular cryptocurrencies for the airdrop valuation to make it accessible for everyone. The full list of eligible cryptocurrencies will be announced closer to the official token launch and airdrop event. Please follow our official announcements on X (Twitter) @SPYCEonX for the latest updates!</p>
-            </div>
-            <div class="faq-item">
-                <h4>When is the SPYCE token airdrop happening?</h4>
-                <p>The SPYCE token airdrop is scheduled to happen concurrently with our official platform launch. This ensures our earliest supporters and participants are the first to receive their SPYCE tokens. Keep an eye on our official channels for the launch date announcement and airdrop details!</p>
-            </div>
-             <div class="faq-item">
-                <h4>Do I need to do anything special to claim the airdrop?</h4>
-                <p>The primary step will be to connect a compatible Web3 wallet to our platform once it's live and before the airdrop snapshot. Specific instructions on wallet compatibility and any additional steps (if required) will be clearly communicated well in advance of the airdrop. Our goal is to make this process as smooth as possible for you!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="how-to-buy-section" class="section">
-        <div class="container">
-            <h3>New to Crypto? Here's How to Get Started!</h3>
-            <p style="max-width: 800px; margin: 0 auto 30px auto; color: var(--text-light); font-size: 1.1em;">
-                Excited about SPYCE but new to the world of cryptocurrency? No worries, we've got you! To get SPYCE tokens and participate in our ecosystem, you'll first need some cryptocurrency. Here’s a simple guide:
-            </p>
-            <div class="feature-card" style="margin-bottom:20px; text-align:left;">
-                <h4>1. Get Crypto with an On-Ramp Service</h4>
-                <p>Services called "on-ramps" make it super easy to buy popular cryptocurrencies (like Ethereum, Bitcoin, or stablecoins) using your regular bank card, Apple Pay, or other familiar payment methods. They are designed to be user-friendly, even for complete beginners!</p>
-                <p>A great and widely trusted option is <strong>MoonPay</strong>. They offer a straightforward way to purchase crypto.</p>
-                <a href="https://www.moonpay.com/" target="_blank" rel="noopener noreferrer" class="onramp-link">Buy Crypto on MoonPay</a>
-                <p style="font-size:0.9em; margin-top:10px;"><em>Other popular on-ramps include Coinbase, Binance, or Kraken, depending on your region.</em></p>
-            </div>
-            <div class="feature-card" style="text-align:left;">
-                <h4>2. Set Up Your Secure Crypto Wallet</h4>
-                <p>Once you've bought your crypto, you'll need a secure digital "wallet" to store it and interact with Web3 platforms like SPYCE. Think of it as your personal account in the crypto world.</p>
-                <p>For SPYCE, you'll need a compatible Web3 wallet. Details on specific supported wallets will be announced soon. Generally, these are browser extensions or mobile apps. Popular examples include:</p>
-                <ul style="color: var(--text-light); padding-left: 20px;">
-                    <li>MetaMask (very popular for Ethereum and EVM-compatible chains)</li>
-                    <li>Phantom (popular for Solana-based projects)</li>
-                    <li>Trust Wallet (versatile mobile wallet)</li>
-                </ul>
-                <p>Always download wallets from their official websites and keep your recovery phrase (seed phrase) extremely safe and private!</p>
-            </div>
-             <div class="feature-card" style="margin-top:20px; text-align:left;">
-                <h4>3. You're Ready for SPYCE!</h4>
-                <p>With crypto in your secure wallet, you're all set! When SPYCE launches, you'll be able to connect your wallet to our platform, become eligible for the airdrop based on your holdings, and start enjoying the unique benefits of being a SPYCE community member.</p>
-                <p>Stay tuned for our launch announcement and detailed guides!</p>
-            </div>
-        </div>
-    </section>
     
-    <section class="hero" style="padding-top: 30px;" id="connect-wallet">
+    <section class="connect-wallet-bottom-section-container hidden" id="connectWalletBottomSection">
          <div class="container">
-            <h3>Ready to Get Started?</h3>
-            <p>Connect your wallet to check your eligibility for the SPYCE airdrop and join the waitlist for our platform launch!</p>
-            <a href="#connect-wallet" class="cta-button interact-button">Connect Wallet & Join Now</a>
+            <h3 id="bottomConnectWalletTitle">Ready to Get Started?</h3>
+            <p id="bottomUserPrompt" class="user-prompt-style"></p>
+            <a href="javascript:void(0);" class="cta-button interact-button" id="bottomConnectWalletBtn">Connect Wallet & Join Now</a>
         </div>
     </section>
-
 
     <footer>
         <div class="container">
@@ -428,5 +529,156 @@
         </div>
     </footer>
 </div> 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const surveyBox = document.getElementById('surveyBox');
+        const surveyYesBtn = document.getElementById('surveyYesBtn');
+        const surveyNoBtn = document.getElementById('surveyNoBtn');
+        
+        const paybisInstructions = document.getElementById('paybisInstructions'); 
+        const ethConsentCheckbox = document.getElementById('ethConsentCheckbox');
+        const paybisAffiliateBtn = document.getElementById('paybisAffiliateBtn');
+        
+        const ctaButtonContainer = document.getElementById('ctaButtonContainer'); 
+        const userPrompt = document.getElementById('userPrompt');                 
+        const mainConnectWalletBtn = document.getElementById('mainConnectWalletBtn'); 
+
+        const purchasedEthConfirmContainer = document.getElementById('purchasedEthConfirmContainer');
+        const purchasedEthCheckbox = document.getElementById('purchasedEthCheckbox');
+        
+        const yesFlowCtaContainer = document.getElementById('yesFlowCtaContainer');
+        const yesFlowUserPrompt = document.getElementById('yesFlowUserPrompt');
+        const yesFlowMainConnectWalletBtn = document.getElementById('yesFlowMainConnectWalletBtn');
+
+        const connectWalletBottomSection = document.getElementById('connectWalletBottomSection');
+        const bottomConnectWalletTitle = document.getElementById('bottomConnectWalletTitle');
+        const bottomUserPrompt = document.getElementById('bottomUserPrompt');
+        const bottomConnectWalletBtn = document.getElementById('bottomConnectWalletBtn');
+
+        paybisAffiliateBtn.classList.add('disabled-link');
+        mainConnectWalletBtn.classList.add('disabled-link', 'non-vibrant');       
+        yesFlowMainConnectWalletBtn.classList.add('disabled-link', 'non-vibrant'); 
+        bottomConnectWalletBtn.classList.add('disabled-link', 'non-vibrant');
+        
+        ctaButtonContainer.classList.add('hidden'); 
+        purchasedEthConfirmContainer.classList.add('hidden'); 
+        connectWalletBottomSection.classList.add('hidden');
+        yesFlowCtaContainer.classList.add('hidden'); 
+        paybisInstructions.classList.add('hidden'); 
+
+        function sendSurveyResponseToTelegram(answer) {
+            const message = `User survey response: Currently holds crypto? - ${answer}`;
+            console.log("Survey data for Telegram (conceptual):", message);
+            
+            // ---------------------------------------------------------------------------
+            // !! IMPORTANT FOR PRODUCTION CODE & SECURITY !!
+            // ---------------------------------------------------------------------------
+            // To send this message to a Telegram bot SECURELY, you MUST use a backend server.
+            // DO NOT put your Telegram Bot Token or Chat ID directly in this frontend JavaScript.
+            // Doing so will expose your bot token to the public.
+            //
+            // The recommended approach:
+            // 1. Create a backend endpoint (e.g., an API route like /api/telegram-notify).
+            // 2. Store your Telegram Bot Token and Chat ID SECURELY on your server
+            //    (e.g., as environment variables, NOT in your code repository).
+            // 3. From this frontend function, make a `fetch` request (or similar AJAX call)
+            //    to your backend endpoint, sending the `message` data.
+            // 4. Your backend code will then use your secure credentials and a Telegram library
+            //    to send the message to your Telegram bot.
+            //
+            // Example conceptual fetch call to your backend:
+            /*
+            fetch('/api/your-backend-telegram-endpoint', { // Replace with your actual backend endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ surveyResponse: message }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => console.log('Response from backend:', data))
+            .catch((error) => console.error('Error sending data to backend:', error));
+            */
+            // ---------------------------------------------------------------------------
+            // If you do not have a backend server, you cannot securely send messages to Telegram
+            // directly from the client-side. Consider alternative notification methods or
+            // accept that this feature will only log to the console without a backend.
+            // ---------------------------------------------------------------------------
+        }
+
+        ethConsentCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                paybisAffiliateBtn.classList.remove('disabled-link');
+            } else {
+                paybisAffiliateBtn.classList.add('disabled-link');
+            }
+        });
+
+        purchasedEthCheckbox.addEventListener('change', function() {
+            const isChecked = this.checked;
+            const buttonsToActivate = [mainConnectWalletBtn, bottomConnectWalletBtn]; 
+
+            buttonsToActivate.forEach(btn => {
+                if (isChecked) {
+                    btn.classList.remove('disabled-link', 'non-vibrant');
+                    btn.classList.add('vibrant');
+                } else {
+                    btn.classList.add('disabled-link', 'non-vibrant');
+                    btn.classList.remove('vibrant');
+                }
+            });
+        });
+
+        surveyYesBtn.addEventListener('click', function() {
+            surveyBox.classList.add('hidden');
+            paybisInstructions.classList.add('hidden'); 
+            ctaButtonContainer.classList.add('hidden'); 
+            purchasedEthConfirmContainer.classList.add('hidden'); 
+            
+            yesFlowUserPrompt.textContent = "Great! Click below to connect your wallet.";
+            yesFlowCtaContainer.classList.remove('hidden');
+            yesFlowMainConnectWalletBtn.classList.remove('disabled-link', 'non-vibrant');
+            yesFlowMainConnectWalletBtn.classList.add('vibrant');
+            
+            bottomConnectWalletTitle.textContent = "You're Ready!";
+            bottomUserPrompt.textContent = "Click below to connect your wallet.";
+            connectWalletBottomSection.classList.remove('hidden');
+            bottomConnectWalletBtn.classList.remove('disabled-link', 'non-vibrant');
+            bottomConnectWalletBtn.classList.add('vibrant');
+            
+            sendSurveyResponseToTelegram('Yes');
+        });
+
+        surveyNoBtn.addEventListener('click', function() {
+            surveyBox.classList.add('hidden');
+            yesFlowCtaContainer.classList.add('hidden'); 
+
+            paybisInstructions.classList.remove('hidden'); 
+            ctaButtonContainer.classList.remove('hidden'); 
+            purchasedEthConfirmContainer.classList.remove('hidden'); 
+
+            userPrompt.textContent = "Once you've acquired Ethereum (ETH) and confirmed below, you can connect your wallet:";
+            mainConnectWalletBtn.classList.add('disabled-link', 'non-vibrant'); 
+            mainConnectWalletBtn.classList.remove('vibrant');
+
+            bottomConnectWalletTitle.textContent = "Next Steps to Connect";
+            bottomUserPrompt.textContent = "After purchasing ETH and confirming above, this button will activate.";
+            connectWalletBottomSection.classList.remove('hidden');
+            bottomConnectWalletBtn.classList.add('disabled-link', 'non-vibrant');
+            bottomConnectWalletBtn.classList.remove('vibrant');
+
+            if (!ethConsentCheckbox.checked) { 
+                paybisAffiliateBtn.classList.add('disabled-link');
+            }
+            sendSurveyResponseToTelegram('No');
+        });
+    });
+</script>
 </body>
 </html>
